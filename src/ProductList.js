@@ -52,14 +52,15 @@ const products = [
 
     ));
 
-    const [updateState] = React.useState();
+    const [,updateState] = React.useState();
     const forceUpdate = React.useCallback(() => updateState({}), []);
   
-    const [voteCount, setVoteCount] = useState(products);
+    const [votes, setVoteCount] = useState(products);
+    
     function addProduct(id) {
       let index = products.findIndex((obj) => obj.id === id);
       products[index].votes++;
-      setVoteCount(products);
+      setVoteCount(votes);
       products.sort((a, b) => b.votes - a.votes);
       console.log(products);
       forceUpdate();
